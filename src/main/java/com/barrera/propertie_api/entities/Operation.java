@@ -35,11 +35,26 @@ public class Operation {
         this.operationType = operationType;
     }
 
-    public Set<Price> getPrices() {
-        return prices;
+    public String getPrices() {
+        return prices.toString();
     }
 
     public void setPrices(Set<Price> prices) {
-        this.prices = prices;
+        if(prices != null)
+        {
+            this.prices = prices;
+        }
+        else{
+            //Throw exception
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "id=" + id +
+                ", operationType=" + operationType +
+                ", prices=" + prices +
+                '}';
     }
 }
