@@ -1,6 +1,8 @@
 package com.barrera.propertie_api.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+
 import java.util.ArrayList;
 
 
@@ -17,15 +19,16 @@ public class Propertie {
     private String fakeAddres;
     private Integer age;
     private Integer bathroomAmount;
+    private Integer toiletAmount;
     private String description;
     private String floorsAmount;
-    // one to one
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Location location;
 
-    // one to many
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Operation> operations;
 
-    // one to many
+    @OneToMany(fetch = FetchType.LAZY)
     private ArrayList<Photo> photos;
 
     private Integer parkingLotAmount;
@@ -33,7 +36,7 @@ public class Propertie {
     private String semiRoofedSurface;
     private Integer roomAmount;
     private Integer suiteAmount;
-    private String surface;
+    private String totalSurface;
     private String surfaceMeasurement;
-
+    private PropertieType type;
 }

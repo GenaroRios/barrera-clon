@@ -1,7 +1,14 @@
 package com.barrera.propertie_api.entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "prices")
 public class Price {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Currency currency;
     private Integer period;
     private Float amount;

@@ -13,6 +13,7 @@ public class Operation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private OperationType operationType;
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Price> prices = new HashSet<>();
 
     public Operation() {
