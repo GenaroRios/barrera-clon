@@ -1,7 +1,6 @@
 package com.barrera.propertie_api.entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Fetch;
 
 import java.util.ArrayList;
 
@@ -10,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "properties")
-public class Propertie {
+public class Property {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,13 +21,13 @@ public class Propertie {
     private Integer toiletAmount;
     private String description;
     private String floorsAmount;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToOne(targetEntity = Location.class, fetch = FetchType.EAGER, mappedBy = "properties")
     private Location location;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Operation.class, fetch = FetchType.EAGER, mappedBy = "properties")
     private Set<Operation> operations;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = Photo.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "properties")
     private ArrayList<Photo> photos;
 
     private Integer parkingLotAmount;
@@ -38,5 +37,5 @@ public class Propertie {
     private Integer suiteAmount;
     private String totalSurface;
     private String surfaceMeasurement;
-    private PropertieType type;
+    private PropertyType type;
 }

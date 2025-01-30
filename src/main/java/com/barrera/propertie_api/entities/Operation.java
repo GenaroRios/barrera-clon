@@ -12,8 +12,11 @@ public class Operation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne(targetEntity = Property.class)
+    private Property property;
+    @Enumerated(EnumType.STRING)
     private OperationType operationType;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Price.class, fetch = FetchType.EAGER, cascade = CascadeType.PERSIST, mappedBy = "operations")
     private Set<Price> prices = new HashSet<>();
 
     public Operation() {

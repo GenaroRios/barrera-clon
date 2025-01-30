@@ -1,13 +1,17 @@
 package com.barrera.propertie_api.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
-public class PropertieType {
+@Entity
+@Table(name = "property_type")
+public class PropertyType {
 
     private String code;
     private Integer id;
     private String name;
 
-    public PropertieType(String code, Integer id, String name) {
+    public PropertyType(String code, Integer id, String name) {
         this.code = code;
         this.id = id;
         this.name = name;

@@ -9,6 +9,8 @@ public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne(targetEntity = Property.class, fetch = FetchType.EAGER)
+    private Property property;
     private String description;
     private String original;
     private String thumb;
