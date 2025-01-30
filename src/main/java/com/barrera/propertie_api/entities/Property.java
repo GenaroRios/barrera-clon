@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -38,4 +39,52 @@ public class Property {
     private String totalSurface;
     private String surfaceMeasurement;
     private PropertyType type;
+
+    public Property() {
+        this.operations = new HashSet<>();
+        this.photos = new ArrayList<>();
+    }
+
+    public Property(String address, Integer age, Integer bathroomAmount, String description, String fakeAddres, String floorsAmount, Location location, Set<Operation> operations, Integer parkingLotAmount, ArrayList<Photo> photos, String roofedSurface, Integer roomAmount, String semiRoofedSurface, Integer suiteAmount, String surfaceMeasurement, Integer toiletAmount, String totalSurface, PropertyType type) {
+        this.address = address;
+        this.age = age;
+        this.bathroomAmount = bathroomAmount;
+        this.description = description;
+        this.fakeAddres = fakeAddres;
+        this.floorsAmount = floorsAmount;
+        this.location = location;
+        this.operations = operations;
+        this.parkingLotAmount = parkingLotAmount;
+        this.photos = photos;
+        this.roofedSurface = roofedSurface;
+        this.roomAmount = roomAmount;
+        this.semiRoofedSurface = semiRoofedSurface;
+        this.suiteAmount = suiteAmount;
+        this.surfaceMeasurement = surfaceMeasurement;
+        this.toiletAmount = toiletAmount;
+        this.totalSurface = totalSurface;
+        this.type = type;
+    }
+
+    public PropertyType getType() {
+        return type;
+    }
+
+    public String getTypeName()
+    {
+        return type.getName();
+    }
+
+    public Set<Operation> getOperations()
+    {
+        return operations;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public String getLocationName(){
+        return location.getName();
+    }
 }
