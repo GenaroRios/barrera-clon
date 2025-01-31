@@ -39,8 +39,8 @@ public class Operation {
         this.operationType = operationType;
     }
 
-    public String getPrices() {
-        return prices.toString();
+    public Set<Price> getPrices() {
+        return prices;
     }
 
     public void setPrices(Set<Price> prices) {

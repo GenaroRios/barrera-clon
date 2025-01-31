@@ -101,7 +101,7 @@ public class PropertyController {
 
     @GetMapping("/{location}")
     @PreAuthorize("permitAll()")
-    public ResponseEntity<List<Property>> findPropertyLocation(@PathVariable String location)
+    public ResponseEntity<List<Property>> findPropertyByLocation(@PathVariable String location)
     {
         List<Property> all = this.repository.findAll();
         List<Property> found = new ArrayList<>();
@@ -119,6 +119,26 @@ public class PropertyController {
         else
         {
             return ResponseEntity.ok(found);
+        }
+    }
+
+    @GetMapping("/priceRange/{operation}?{bottom}-{top}")
+    @PreAuthorize("permitAll()")
+    public ResponseEntity<List<Property>> filterByPriceRange(@PathVariable String operation, @PathVariable Integer bottom, @PathVariable Integer top)
+    {
+        ResponseEntity<List<Property>> all = findPropertyByOperationType(operation);;
+        List<Property> found = new ArrayList<>();
+        Set<Operation> operations;
+        if (!all.getBody().isEmpty() && (bottom != null && top != null))
+        {
+            for(Property property: all.getBody())
+            {
+                operations = property.getOperations();
+                for(Operation op: operations)
+                {
+
+                }
+            }
         }
     }
 
