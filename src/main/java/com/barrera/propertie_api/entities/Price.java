@@ -9,9 +9,9 @@ public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(targetEntity = Operation.class, fetch = FetchType.EAGER)
+    //@OneToMany(targetEntity = Operation.class, fetch = FetchType.EAGER)
     private Operation operation;
-    @Enumerated(EnumType.STRING)
+    //@Enumerated(EnumType.STRING)
     private Currency currency;
     private Integer period;
     private Float amount;

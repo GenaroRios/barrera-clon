@@ -1,19 +1,21 @@
 package com.barrera.propertie_api.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "property_type")
 public class PropertyType {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Integer idType;
     private String code;
-    private Integer id;
     private String name;
 
     public PropertyType(String code, Integer id, String name) {
         this.code = code;
-        this.id = id;
+        this.idType = id;
         this.name = name;
     }
 
@@ -26,11 +28,11 @@ public class PropertyType {
     }
 
     public Integer getId() {
-        return id;
+        return idType;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idType = id;
     }
 
     public String getName() {

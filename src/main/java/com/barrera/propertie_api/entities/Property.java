@@ -22,13 +22,13 @@ public class Property {
     private Integer toiletAmount;
     private String description;
     private String floorsAmount;
-    @OneToOne(targetEntity = Location.class, fetch = FetchType.EAGER, mappedBy = "properties")
+    //@OneToOne(targetEntity = Location.class, fetch = FetchType.EAGER, mappedBy = "properties")
     private Location location;
 
-    @OneToMany(targetEntity = Operation.class, fetch = FetchType.EAGER, mappedBy = "properties")
+    //@OneToMany(targetEntity = Operation.class, fetch = FetchType.EAGER, mappedBy = "properties")
     private Set<Operation> operations;
 
-    @OneToMany(targetEntity = Photo.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "properties")
+    //@OneToMany(targetEntity = Photo.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "properties")
     private ArrayList<Photo> photos;
 
     private Integer parkingLotAmount;

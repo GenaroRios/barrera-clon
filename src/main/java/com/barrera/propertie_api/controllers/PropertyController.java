@@ -122,7 +122,7 @@ public class PropertyController {
         }
     }
 
-    @GetMapping("/priceRange/{operation}?{bottom}-{top}")
+    /*@GetMapping("/priceRange/{operation}?{bottom}-{top}")
     @PreAuthorize("permitAll()")
     public ResponseEntity<List<Property>> filterByPriceRange(@PathVariable String operation, @PathVariable Integer bottom, @PathVariable Integer top)
     {
@@ -140,7 +140,7 @@ public class PropertyController {
                 }
             }
         }
-    }
+    }*/
 
 
 }
